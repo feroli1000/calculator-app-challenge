@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+button {
+  cursor: pointer;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attribution {
+  margin-top: 10px;
+  font-size: 11px;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+
+.separator {
+  display: block;
+  height: 5vh;
+}
+
+.calculator {
+  width: 40%;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .toggle-wrapper {
+      display: flex;
+      align-items: flex-end;
+      justify-content: end;
+      column-gap: 20px;
+      width: 200px;
+      font-size: 12px;
+      .theme-text {
+        padding-bottom: 6px;
+      }
+      .toggle-numbers {
+        width: 80px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 4px;
+      }
+      .toggle {
+        width: 80px;
+        height: 26px;
+        display: flex;
+        border-radius: 34px;
+
+        & > div {
+          width: 33.3%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .toggle-indicator {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          cursor: default;
+        }
+      }
+    }
+  }
+  .screen {
+    border-radius: 10px;
+    padding: 30px;
+    display: block;
+    height: 60px;
+    .number {
+      font-size: 56px;
+      text-align: right;
+    }
+    .operation {
+      display: block;
+      height: 20px;
+      font-size: 12px;
+      text-align: left;
+    }
+  }
+  .keypad {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    button {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 32px;
+      margin: 10px;
+      padding: 10px 0px 6px 0px;
+      border-radius: 10px;
+      border: none;
+      width: 25%;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+      &.delete,
+      &.reset {
+        font-size: 20px;
+      }
+      &.reset,
+      &.equal {
+        width: 50%;
+      }
+      &.delete,
+      &.reset,
+      &.equal {
+        &:hover {
+          filter: brightness(140%);
+        }
+      }
+    }
+  }
+}
+
+/* Default colors ( Theme 1 ) */
+@text1: hsl(0, 0, 100%);
+
+@main-background: hsl(222, 26%, 31%);
+@screen-background: hsl(224, 36%, 15%);
+@keypad-background: hsl(223, 31%, 20%);
+
+@key-background: hsl(30, 25%, 89%);
+@key-shadow: hsl(28, 16%, 65%);
+@key-text: hsl(221, 14%, 31%);
+
+@key-reset-background: hsl(225, 21%, 49%);
+@key-reset-shadow: hsl(224, 28%, 35%);
+@key-reset-text: hsl(0, 0, 100%);
+
+@key-equal-background: hsl(6, 63%, 50%);
+@key-equal-shadow: hsl(6, 70%, 34%);
+@key-equal-text: hsl(0, 0, 100%);
+
+@toggle-background: hsl(223, 31%, 20%);
+@toggle-indicator: hsl(6, 63%, 50%);
+
+@attribution-link: hsl(52, 100%, 62%);
+
+@import url('theme-1.less');
+@import url('theme-2.less');
+@import url('theme-3.less');
+
+.themeMixin {
+  color: @text1;
+  background-color: @main-background;
+
+  .keypad {
+    background-color: @keypad-background;
+  }
+
+  .screen {
+    background-color: @screen-background;
+  }
+
+  .toggle {
+    background-color: @toggle-background;
+    .toggle-indicator {
+      background-color: @toggle-indicator;
+    }
+  }
+
+  button {
+    background-color: @key-background;
+    box-shadow: 0px 2px 0px 0px @key-shadow;
+    &.number,
+    &.operator {
+      color: @key-text;
+    }
+    &.reset,
+    &.delete {
+      color: @key-reset-text;
+      background-color: @key-reset-background;
+      box-shadow: 0px 2px 0px 0px @key-reset-shadow;
+    }
+    &.equal {
+      color: @key-equal-text;
+      background-color: @key-equal-background;
+      box-shadow: 0px 2px 0px 0px @key-equal-shadow;
+    }
+  }
+
+  .attribution {
+    a {
+      color: @attribution-link;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .calculator {
+    width: 90%;
+  }
+}
