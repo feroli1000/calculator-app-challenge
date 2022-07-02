@@ -75,7 +75,7 @@
 
     operator === '+' && (result = n1 + n2);
     operator === '-' && (result = n1 - n2);
-    operator === '*' && (result = n1 * n2);
+    operator === 'x' && (result = n1 * n2);
     operator === '/' && (result = n1 / n2);
 
     operator = '';
