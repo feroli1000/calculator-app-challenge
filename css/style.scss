@@ -1,0 +1,166 @@
+@import 'themes.scss';
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+button {
+  cursor: pointer;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attribution {
+  margin-top: 10px;
+  font-size: 11px;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+
+.separator {
+  display: block;
+  height: 5vh;
+}
+
+.calculator {
+  width: 40%;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .toggle-wrapper {
+      display: flex;
+      align-items: flex-end;
+      justify-content: end;
+      column-gap: 20px;
+      width: 200px;
+      font-size: 12px;
+      .theme-text {
+        padding-bottom: 6px;
+      }
+      .toggle-numbers {
+        width: 80px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 4px;
+      }
+      .toggle {
+        width: 80px;
+        height: 26px;
+        display: flex;
+        border-radius: 34px;
+
+        & > div {
+          width: 33.3%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .toggle-indicator {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          cursor: default;
+        }
+      }
+    }
+  }
+  .screen {
+    border-radius: 10px;
+    padding: 30px;
+    display: block;
+    height: 60px;
+    .number {
+      font-size: 56px;
+      text-align: right;
+    }
+    .operation {
+      display: block;
+      height: 20px;
+      font-size: 12px;
+      text-align: left;
+    }
+  }
+  .keypad {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    button {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 32px;
+      margin: 10px;
+      padding: 10px 0px 6px 0px;
+      border-radius: 10px;
+      border: none;
+      width: 25%;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+      &.delete,
+      &.reset {
+        font-size: 20px;
+      }
+      &.reset,
+      &.equal {
+        width: 50%;
+      }
+      &.delete,
+      &.reset,
+      &.equal {
+        &:hover {
+          filter: brightness(140%);
+        }
+      }
+    }
+  }
+}
+
+.theme-1 {
+  @include themeMixin(1);
+}
+
+.theme-2 {
+  @include themeMixin(2);
+}
+
+.theme-3 {
+  @include themeMixin(3);
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .calculator {
+    width: 90%;
+  }
+}

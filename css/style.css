@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "League Spartan", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+button {
+  cursor: pointer;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attribution {
+  margin-top: 10px;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  text-decoration: none;
+}
+
+.separator {
+  display: block;
+  height: 5vh;
+}
+
+.calculator {
+  width: 40%;
+}
+.calculator .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calculator .head .toggle-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  column-gap: 20px;
+  width: 200px;
+  font-size: 12px;
+}
+.calculator .head .toggle-wrapper .theme-text {
+  padding-bottom: 6px;
+}
+.calculator .head .toggle-wrapper .toggle-numbers {
+  width: 80px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 4px;
+}
+.calculator .head .toggle-wrapper .toggle {
+  width: 80px;
+  height: 26px;
+  display: flex;
+  border-radius: 34px;
+}
+.calculator .head .toggle-wrapper .toggle > div {
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.calculator .head .toggle-wrapper .toggle .toggle-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: default;
+}
+.calculator .screen {
+  border-radius: 10px;
+  padding: 30px;
+  display: block;
+  height: 60px;
+}
+.calculator .screen .number {
+  font-size: 56px;
+  text-align: right;
+}
+.calculator .screen .operation {
+  display: block;
+  height: 20px;
+  font-size: 12px;
+  text-align: left;
+}
+.calculator .keypad {
+  padding: 20px;
+  border-radius: 10px;
+}
+.calculator .row {
+  display: flex;
+  justify-content: space-between;
+}
+.calculator .row button {
+  font-family: "League Spartan", sans-serif;
+  font-size: 32px;
+  margin: 10px;
+  padding: 10px 0px 6px 0px;
+  border-radius: 10px;
+  border: none;
+  width: 25%;
+}
+.calculator .row button:focus {
+  border: none;
+  outline: none;
+}
+.calculator .row button.delete, .calculator .row button.reset {
+  font-size: 20px;
+}
+.calculator .row button.reset, .calculator .row button.equal {
+  width: 50%;
+}
+.calculator .row button.delete:hover, .calculator .row button.reset:hover, .calculator .row button.equal:hover {
+  filter: brightness(140%);
+}
+
+.theme-1 {
+  color: white;
+  background-color: #3a4764;
+}
+.theme-1 .keypad {
+  background-color: #232c43;
+}
+.theme-1 .screen {
+  background-color: #182034;
+}
+.theme-1 .toggle {
+  background-color: #232c43;
+}
+.theme-1 .toggle .toggle-indicator {
+  background-color: #d03f2f;
+}
+.theme-1 button {
+  background-color: #eae3dc;
+  box-shadow: 0px 2px 0px 0px #b4a597;
+}
+.theme-1 button.number, .theme-1 button.operator {
+  color: #444b5a;
+}
+.theme-1 button.reset, .theme-1 button.delete {
+  color: white;
+  background-color: #637097;
+  box-shadow: 0px 2px 0px 0px #404e72;
+}
+.theme-1 button.equal {
+  color: white;
+  background-color: #d03f2f;
+  box-shadow: 0px 2px 0px 0px #93261a;
+}
+.theme-1 .attribution a {
+  color: #ffe53d;
+}
+
+.theme-2 {
+  color: #35352c;
+  background-color: #e6e6e6;
+}
+.theme-2 .keypad {
+  background-color: #d1cccc;
+}
+.theme-2 .screen {
+  background-color: #ededed;
+}
+.theme-2 .toggle {
+  background-color: #d1cccc;
+}
+.theme-2 .toggle .toggle-indicator {
+  background-color: #ca5502;
+}
+.theme-2 button {
+  background-color: #e5e4e1;
+  box-shadow: 0px 2px 0px 0px #a69d91;
+}
+.theme-2 button.number, .theme-2 button.operator {
+  color: #444b5a;
+}
+.theme-2 button.reset, .theme-2 button.delete {
+  color: white;
+  background-color: #377f86;
+  box-shadow: 0px 2px 0px 0px #1b5f65;
+}
+.theme-2 button.equal {
+  color: white;
+  background-color: #ca5502;
+  box-shadow: 0px 2px 0px 0px #893901;
+}
+.theme-2 .attribution a {
+  color: #3e52a3;
+}
+
+.theme-3 {
+  color: #ffe53d;
+  background-color: #160628;
+}
+.theme-3 .keypad {
+  background-color: #1d0934;
+}
+.theme-3 .screen {
+  background-color: #1d0934;
+}
+.theme-3 .toggle {
+  background-color: #1d0934;
+}
+.theme-3 .toggle .toggle-indicator {
+  background-color: #00e0d1;
+}
+.theme-3 button {
+  background-color: #58077d;
+  box-shadow: 0px 2px 0px 0px #bc15f4;
+}
+.theme-3 button.number, .theme-3 button.operator {
+  color: #ffe53d;
+}
+.theme-3 button.reset, .theme-3 button.delete {
+  color: white;
+  background-color: #341c4f;
+  box-shadow: 0px 2px 0px 0px #871c9c;
+}
+.theme-3 button.equal {
+  color: #220202;
+  background-color: #00e0d1;
+  box-shadow: 0px 2px 0px 0px #6cf9f2;
+}
+.theme-3 .attribution a {
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .calculator {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
