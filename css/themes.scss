@@ -22,6 +22,9 @@
   button {
     background-color: map.get($theme, 'key-background');
     box-shadow: 0px 2px 0px 0px map.get($theme, 'key-shadow');
+    &:active {
+      box-shadow: 0px 1px 0px 0px map.get($theme, 'key-shadow'), inset 0px 1px 0px map.get($theme, 'key-shadow');
+    }
     &.number,
     &.operator {
       color: map.get($theme, 'key-text');
@@ -31,11 +34,19 @@
       color: map.get($theme, 'key-reset-text');
       background-color: map.get($theme, 'key-reset-background');
       box-shadow: 0px 2px 0px 0px map.get($theme, 'key-reset-shadow');
+      &:active {
+        box-shadow: 0px 1px 0px 0px map.get($theme, 'key-reset-shadow'),
+          inset 0px 1px 0px map.get($theme, 'key-reset-shadow');
+      }
     }
     &.equal {
       color: map.get($theme, 'key-equal-text');
       background-color: map.get($theme, 'key-equal-background');
       box-shadow: 0px 2px 0px 0px map.get($theme, 'key-equal-shadow');
+      &:active {
+        box-shadow: 0px 1px 0px 0px map.get($theme, 'key-equal-shadow'),
+          inset 0px 1px 0px map.get($theme, 'key-equal-shadow');
+      }
     }
   }
 

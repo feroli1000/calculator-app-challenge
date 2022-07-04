@@ -8,10 +8,6 @@ body {
   font-weight: 700;
 }
 
-button {
-  cursor: pointer;
-}
-
 .d-block {
   display: block;
 }
@@ -121,10 +117,14 @@ button {
   border-radius: 10px;
   border: none;
   width: 25%;
+  cursor: pointer;
 }
 .calculator .row button:focus {
   border: none;
   outline: none;
+}
+.calculator .row button:hover {
+  filter: brightness(105%);
 }
 .calculator .row button.delete, .calculator .row button.reset {
   font-size: 20px;
@@ -156,6 +156,9 @@ button {
   background-color: #eae3dc;
   box-shadow: 0px 2px 0px 0px #b4a597;
 }
+.theme-1 button:active {
+  box-shadow: 0px 1px 0px 0px #b4a597, inset 0px 1px 0px #b4a597;
+}
 .theme-1 button.number, .theme-1 button.operator {
   color: #444b5a;
 }
@@ -164,10 +167,16 @@ button {
   background-color: #637097;
   box-shadow: 0px 2px 0px 0px #404e72;
 }
+.theme-1 button.reset:active, .theme-1 button.delete:active {
+  box-shadow: 0px 1px 0px 0px #404e72, inset 0px 1px 0px #404e72;
+}
 .theme-1 button.equal {
   color: white;
   background-color: #d03f2f;
   box-shadow: 0px 2px 0px 0px #93261a;
+}
+.theme-1 button.equal:active {
+  box-shadow: 0px 1px 0px 0px #93261a, inset 0px 1px 0px #93261a;
 }
 .theme-1 .attribution a {
   color: #ffe53d;
@@ -193,6 +202,9 @@ button {
   background-color: #e5e4e1;
   box-shadow: 0px 2px 0px 0px #a69d91;
 }
+.theme-2 button:active {
+  box-shadow: 0px 1px 0px 0px #a69d91, inset 0px 1px 0px #a69d91;
+}
 .theme-2 button.number, .theme-2 button.operator {
   color: #444b5a;
 }
@@ -201,10 +213,16 @@ button {
   background-color: #377f86;
   box-shadow: 0px 2px 0px 0px #1b5f65;
 }
+.theme-2 button.reset:active, .theme-2 button.delete:active {
+  box-shadow: 0px 1px 0px 0px #1b5f65, inset 0px 1px 0px #1b5f65;
+}
 .theme-2 button.equal {
   color: white;
   background-color: #ca5502;
   box-shadow: 0px 2px 0px 0px #893901;
+}
+.theme-2 button.equal:active {
+  box-shadow: 0px 1px 0px 0px #893901, inset 0px 1px 0px #893901;
 }
 .theme-2 .attribution a {
   color: #3e52a3;
@@ -230,6 +248,9 @@ button {
   background-color: #58077d;
   box-shadow: 0px 2px 0px 0px #bc15f4;
 }
+.theme-3 button:active {
+  box-shadow: 0px 1px 0px 0px #bc15f4, inset 0px 1px 0px #bc15f4;
+}
 .theme-3 button.number, .theme-3 button.operator {
   color: #ffe53d;
 }
@@ -238,10 +259,16 @@ button {
   background-color: #341c4f;
   box-shadow: 0px 2px 0px 0px #871c9c;
 }
+.theme-3 button.reset:active, .theme-3 button.delete:active {
+  box-shadow: 0px 1px 0px 0px #871c9c, inset 0px 1px 0px #871c9c;
+}
 .theme-3 button.equal {
   color: #220202;
   background-color: #00e0d1;
   box-shadow: 0px 2px 0px 0px #6cf9f2;
+}
+.theme-3 button.equal:active {
+  box-shadow: 0px 1px 0px 0px #6cf9f2, inset 0px 1px 0px #6cf9f2;
 }
 .theme-3 .attribution a {
   color: white;

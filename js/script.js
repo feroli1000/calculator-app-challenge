@@ -18,6 +18,30 @@
   document.querySelector('.toggle .theme2').addEventListener('click', () => setTheme(2));
   document.querySelector('.toggle .theme3').addEventListener('click', () => setTheme(3));
 
+  document.addEventListener('keydown', (evt) => {
+    const numbersKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ','];
+    const operatorsKeys = ['+', '-', '*', '/'];
+    const actionsKeys = ['Delete', 'Enter', 'Escape'];
+    const validKeys = [...numbersKeys, ...operatorsKeys, ...actionsKeys];
+    const key = evt.key;
+
+    if (validKeys.indexOf(key) < 0) {
+      return;
+    }
+
+    key === 'Delete' && deleteClick();
+    key === 'Escape' && resetClick();
+    key === 'Enter' && equalClick();
+
+    for (let num of numbersKeys) {
+      key === num && numberClick({ target: { value: num } });
+    }
+
+    for (let oper of operatorsKeys) {
+      key === oper && operatorClick({ target: { value: oper } });
+    }
+  });
+
   // ================= Theme functions =====================
   function setTheme(theme) {
     const body = document.querySelector('body');
@@ -56,17 +80,8 @@
     printOperation();
   }
 
-  function canCalculate() {
-    if (number1 === '.' || number2 === '.') {
-      return false;
-    }
-    if (number1.length < 1 || number2.length < 1) {
-      return false;
-    }
-    return true;
-  }
-
   function equalClick(/* evt */) {
+    const canCalculate = () => isNumeric(number1) && isNumeric(number2);
     if (!canCalculate()) {
       return;
     }
@@ -75,7 +90,7 @@
 
     operator === '+' && (result = n1 + n2);
     operator === '-' && (result = n1 - n2);
-    operator === 'x' && (result = n1 * n2);
+    operator === '*' && (result = n1 * n2);
     operator === '/' && (result = n1 / n2);
 
     operator = '';
@@ -92,20 +107,21 @@
       result = 0;
     }
 
-    const number = evt.target.value;
-    //const checkFormat = (num)=> (number === "." && num.indexOf(".") > 0)
+    let value = evt.target.value;
+    value === ',' && (value = '.');
+
     if (operator === '') {
-      if (number === '.' && number1.indexOf('.') > 0) {
+      if (value === '.' && number1.indexOf('.') > 0) {
         return;
       }
-      number1 += number;
+      number1 += value;
       printValue(number1);
       return;
     }
-    if (number === '.' && number2.indexOf('.') > 0) {
+    if (value === '.' && number2.indexOf('.') > 0) {
       return;
     }
-    number2 += number;
+    number2 += value;
     printValue(number2);
     printOperation();
   }
@@ -116,11 +132,12 @@
   }
 
   function printValue(value) {
-    screenNumber.innerHTML = value;
+    screenNumber.innerHTML = parseFloat(value).toLocaleString();
   }
 
   function printOperation() {
-    let operation = !!operator ? `${number1} ${operator}` : '';
+    const strOperator = operator === '*' ? 'x' : operator;
+    let operation = !!operator ? `${number1} ${strOperator}` : '';
     !!number2 && (operation += ` ${number2} = `);
     screenOperation.innerHTML = operation;
   }
@@ -128,5 +145,13 @@
   function clearScreen(all = true) {
     screenNumber.innerHTML = '';
     all && (screenOperation.innerHTML = '');
+  }
+
+  function isNumeric(str) {
+    str = '' + str; // converts to string
+    return (
+      !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+      !isNaN(parseFloat(str))
+    ); // ...and ensure strings of whitespace fail
   }
 })();

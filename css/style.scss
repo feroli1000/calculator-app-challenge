@@ -10,10 +10,6 @@ body {
   font-weight: 700;
 }
 
-button {
-  cursor: pointer;
-}
-
 .d-block {
   display: block;
 }
@@ -123,9 +119,13 @@ button {
       border-radius: 10px;
       border: none;
       width: 25%;
+      cursor: pointer;
       &:focus {
         border: none;
         outline: none;
+      }
+      &:hover {
+        filter: brightness(105%);
       }
       &.delete,
       &.reset {
